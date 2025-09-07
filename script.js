@@ -100,8 +100,6 @@ const scoreBox = document.getElementById("score");
 const highScoreBox = document.getElementById("highScore");
 const timerBox = document.getElementById("timer");
 
-const progressBar = document.getElementById("progressBar");
-
 const totalBox = document.getElementById("total");
 const qNumberBox = document.getElementById("qNumber");
 
@@ -128,10 +126,6 @@ function showQuestion() {
   totalBox.innerText = quizData.length;
   questionBox.innerText = question;
 
-  // update progress bar
-  const progressPercent = ((currentQuestion) / quizData.length) * 100;
-  progressBar.style.width = progressPercent + "%";
-
   // adding options for the questions
   optionsBox.innerHTML = "";
   quizData[currentQuestion].options.forEach((opt) => {
@@ -140,7 +134,9 @@ function showQuestion() {
     btn.innerText = opt;
     optionsBox.appendChild(btn);
 
-    btn.addEventListener("click", () => checkAnswer(btn, opt, answer));
+    btn.addEventListener("click",()=>{
+      checkAnswer(btn,opt,answer);
+    });
   });
 
   nextBtn.disabled = true;
@@ -218,14 +214,9 @@ function endGame() {
   optionsBox.innerHTML = "";
   nextBtn.style.display = "none";
   restartBtn.classList.remove("d-none");
-  progressBar.style.width = "100%";
 
   // update high score
-  const best = localStorage.getItem("highScore") || 0;
-  if (score > best) {
-    localStorage.setItem("highScore", score);
-    highScoreBox.innerText = score;
-  }
+  highScoreBox.innerText = score;
 }
 
 // Restart Quiz
@@ -239,7 +230,4 @@ restartBtn.addEventListener("click", () => {
 });
 
 // Start Quiz
-window.onload = () => {
-  highScoreBox.innerText = localStorage.getItem("highScore") || 0;
-  showQuestion();
-};
+showQuestion();

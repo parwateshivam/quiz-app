@@ -41,11 +41,6 @@ body {
   border: 1px solid #f5c6cb !important;
 }
 
-/* Progress bar */
-.progress-bar {
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-}
-
 /* Buttons */
 #nextBtn,
 #restartBtn {
