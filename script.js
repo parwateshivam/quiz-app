@@ -100,6 +100,8 @@ const scoreBox = document.getElementById("score");
 const highScoreBox = document.getElementById("highScore");
 const timerBox = document.getElementById("timer");
 
+const progressBar = document.getElementById("progressBar");
+
 const totalBox = document.getElementById("total");
 const qNumberBox = document.getElementById("qNumber");
 
@@ -125,6 +127,11 @@ function showQuestion() {
   qNumberBox.innerText = currentQuestion + 1;
   totalBox.innerText = quizData.length;
   questionBox.innerText = question;
+
+  // updating progress bar before updating next question
+
+  const progressBarPercent = Math.floor((currentQuestion / quizData.length) * 100);
+  progressBar.style.width = progressBarPercent + "%";
 
   // adding options for the questions
   optionsBox.innerHTML = "";
@@ -214,7 +221,7 @@ function endGame() {
   optionsBox.innerHTML = "";
   nextBtn.style.display = "none";
   restartBtn.classList.remove("d-none");
-
+  progressBar.style.width = "100%";
   // update high score
   highScoreBox.innerText = score;
 }
