@@ -4,11 +4,10 @@ body {
   font-family: monospace;
 }
 
-/* Card styling */
-.card {
-  border-radius: 20px;
-  background: #fff;
+/* card styling */
+.card{
   border: none;
+  gap: 10px;
 }
 
 /* Question text */
