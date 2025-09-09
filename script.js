@@ -1,59 +1,74 @@
 // QUIZ DATA (Questions)
 const quizData = [
   {
-    question: "Which language runs in the browser?",
-    options: ["Java", "C", "Python", "JavaScript"],
-    answer: "JavaScript"
+    question: "Which of the following is NOT a JavaScript data type?",
+    options: ["Undefined", "Boolean", "Float", "Number"],
+    answer: "Float"
   },
   {
-    question: "Which tag is used to include an external CSS file?",
-    options: ["<style>", "<link>", "<script>", "<meta>"],
-    answer: "<link>"
-  },
-  {
-    question: "Which HTML tag is used to create a hyperlink?",
-    options: ["<a>", "<p>", "<link>", "<h1>"],
-    answer: "<a>"
-  },
-  {
-    question: "Inside which HTML element do we put JavaScript code?",
-    options: ["<script>", "<javascript>", "<code>", "<js>"],
-    answer: "<script>"
-  },
-  {
-    question: "Which symbol is used for comments in JavaScript?",
-    options: ["//", "/* */", "<!-- -->", "#"],
-    answer: "//"
-  },
-  {
-    question: "Which method is used to select an element by ID in JavaScript?",
+    question: "In CSS Grid, what does 'fr' unit represent?",
     options: [
-      "getElementById()",
-      "querySelectorAll()",
-      "getElementsByClassName()",
-      "getTagName()"
+      "Fraction of available space",
+      "Fixed ratio",
+      "Font-relative size",
+      "Fraction of parent height"
     ],
-    answer: "getElementById()"
+    answer: "Fraction of available space"
   },
   {
-    question: "Which CSS property controls the size of text?",
-    options: ["font-size", "text-size", "font-weight", "size"],
-    answer: "font-size"
+    question: "Which HTTP status code means 'Unauthorized'?",
+    options: ["200", "301", "401", "403"],
+    answer: "401"
   },
   {
-    question: "Which company developed JavaScript?",
-    options: ["Google", "Netscape", "Microsoft", "Apple"],
-    answer: "Netscape"
+    question: "Which method in JavaScript is used to parse a JSON string?",
+    options: ["JSON.stringify()", "JSON.parse()", "parse.JSON()", "toJSON()"],
+    answer: "JSON.parse()"
   },
   {
-    question: "Which keyword is used to declare a variable in JavaScript?",
-    options: ["var", "let", "const", "All of the above"],
-    answer: "All of the above"
+    question: "What is the difference between '==' and '===' in JavaScript?",
+    options: [
+      "No difference",
+      "== compares value only, === compares value and type",
+      "=== compares value only, == compares type and value",
+      "== is strict, === is loose"
+    ],
+    answer: "== compares value only, === compares value and type"
   },
   {
-    question: "Which CSS property is used to change the background color?",
-    options: ["color", "background-color", "bgcolor", "background"],
-    answer: "background-color"
+    question: "Which of the following is NOT a valid CSS position value?",
+    options: ["static", "relative", "absolute", "fixed", "float"],
+    answer: "float"
+  },
+  {
+    question: "Which JavaScript feature allows writing async code in sync style?",
+    options: ["Promises", "Callbacks", "Async/Await", "Events"],
+    answer: "Async/Await"
+  },
+  {
+    question: "What does CORS stand for?",
+    options: [
+      "Cross-Origin Resource Sharing",
+      "Cross-Origin Restricted Script",
+      "Controlled Origin Resource Service",
+      "Cross-Organization Resource Sharing"
+    ],
+    answer: "Cross-Origin Resource Sharing"
+  },
+  {
+    question: "Which SQL command is used to remove a table completely?",
+    options: ["DELETE", "DROP", "REMOVE", "TRUNCATE"],
+    answer: "DROP"
+  },
+  {
+    question: "What does the 'this' keyword refer to in JavaScript (default)?",
+    options: [
+      "The global object",
+      "The current function",
+      "The parent object",
+      "Undefined always"
+    ],
+    answer: "The global object"
   }
 ];
 
