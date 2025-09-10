@@ -1,13 +1,12 @@
 /* General body styling */
 body {
   background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-  font-family: monospace;
+  font-family:sans-serif;
 }
 
 /* card styling */
 .card{
   border: none;
-  gap: 10px;
 }
 
 /* Question text */

@@ -76,15 +76,11 @@ const quizData = [
 const correctBox = document.getElementById("correct");
 const wrongBox = document.getElementById("wrong");
 const timerBox = document.getElementById("timer");
-
 const progressBar = document.getElementById("progressBar");
-
 const questionBox = document.getElementById("questionBox");
 const optionsBox = document.getElementById("optionsBox");
-
 const totalBox = document.getElementById("total");
 const qNumberBox = document.getElementById("qNumber");
-
 const nextBtn = document.getElementById("nextBtn");
 const restartBtn = document.getElementById("restartBtn");
 
@@ -101,24 +97,18 @@ function showQuestion() {
   clearInterval(timer);
   timeLeft = 15;
   timerBox.innerText = timeLeft;
-
   //get question from data
   const question = quizData[currentQuestion].question;
-
   qNumberBox.innerText = currentQuestion + 1;
   totalBox.innerText = quizData.length;
   questionBox.innerText = question;
-
   // updating progress bar before updating next question
   const progressBarPercent = Math.floor((currentQuestion / quizData.length) * 100);
   progressBar.style.width = progressBarPercent + "%";
-
   // adding options for the questions
   addOptions();
-
   // disabled next btn till the user not select the answer
   nextBtn.disabled = true;
-
   // start timer
   startTimer();
 }
@@ -126,14 +116,12 @@ function showQuestion() {
 //add options one by one
 function addOptions() {
   const answer = quizData[currentQuestion].answer;
-
   optionsBox.innerHTML = "";
   quizData[currentQuestion].options.forEach((opt) => {
     let btn = document.createElement("button");
     btn.className = "list-group-item list-group-item-action option-btn";
     btn.innerText = opt;
     optionsBox.appendChild(btn);
-
     btn.addEventListener("click", () => {
       checkAnswer(btn, opt, answer);
     });
@@ -143,9 +131,7 @@ function addOptions() {
 // check if selected answer is correct or wrong
 function checkAnswer(selectedBtn, selectedBtnAnswer, correctAnswer) {
   stopTimer();
-
   let optionButtons = optionsBox.querySelectorAll("button");
-
   if (selectedBtnAnswer === correctAnswer) {
     selectedBtn.classList.add("list-group-item-success");
     correct++;
@@ -160,10 +146,8 @@ function checkAnswer(selectedBtn, selectedBtnAnswer, correctAnswer) {
       }
     });
   }
-
   // disable all options
   optionButtons.forEach(b => b.disabled = true);
-
   // enable Next button
   nextBtn.disabled = false;
 }
@@ -173,7 +157,6 @@ function startTimer() {
   timer = setInterval(() => {
     timeLeft--;
     timerBox.innerText = timeLeft;
-
     if (timeLeft <= 0) {
       stopTimer();
       // time ran out → show correct answer
