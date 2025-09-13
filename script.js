@@ -1,76 +1,97 @@
 // QUIZ DATA (Questions)
 const quizData = [
   {
-    question: "Which of the following is NOT a JavaScript data type?",
-    options: ["Undefined", "Boolean", "Float", "Number"],
-    answer: "Float"
-  },
-  {
-    question: "In CSS Grid, what does 'fr' unit represent?",
+    question: "What does HTML stand for?",
     options: [
-      "Fraction of available space",
-      "Fixed ratio",
-      "Font-relative size",
-      "Fraction of parent height"
+      "Hyper Text Markup Language",
+      "Home Tool Markup Language",
+      "High Tech Markup Language",
+      "Hyperlink and Text Making Language"
     ],
-    answer: "Fraction of available space"
+    answer: "Hyper Text Markup Language"
   },
   {
-    question: "Which HTTP status code means 'Unauthorized'?",
-    options: ["200", "301", "401", "403"],
-    answer: "401"
+    question: "Which language runs in the browser?",
+    options: ["Java", "C", "Python", "JavaScript"],
+    answer: "JavaScript"
   },
   {
-    question: "Which method in JavaScript is used to parse a JSON string?",
-    options: ["JSON.stringify()", "JSON.parse()", "parse.JSON()", "toJSON()"],
-    answer: "JSON.parse()"
+    question: "Which tag is used to include an external CSS file?",
+    options: ["<style>", "<link>", "<script>", "<meta>"],
+    answer: "<link>"
   },
   {
-    question: "What is the difference between '==' and '===' in JavaScript?",
+    question: "What does CSS stand for?",
     options: [
-      "No difference",
-      "== compares value only, === compares value and type",
-      "=== compares value only, == compares type and value",
-      "== is strict, === is loose"
+      "Computer Style Sheets",
+      "Cascading Style Sheets",
+      "Creative Style Sheets",
+      "Colorful Style Sheets"
     ],
-    answer: "== compares value only, === compares value and type"
+    answer: "Cascading Style Sheets"
   },
   {
-    question: "Which of the following is NOT a valid CSS position value?",
-    options: ["static", "relative", "absolute", "fixed", "float"],
-    answer: "float"
+    question: "Which HTML tag is used to create a hyperlink?",
+    options: ["<a>", "<p>", "<link>", "<h1>"],
+    answer: "<a>"
   },
   {
-    question: "Which JavaScript feature allows writing async code in sync style?",
-    options: ["Promises", "Callbacks", "Async/Await", "Events"],
-    answer: "Async/Await"
+    question: "Which property is used in CSS to change text color?",
+    options: ["font-style", "text-color", "color", "background-color"],
+    answer: "color"
   },
   {
-    question: "What does CORS stand for?",
+    question: "Inside which HTML element do we put JavaScript code?",
+    options: ["<script>", "<javascript>", "<code>", "<js>"],
+    answer: "<script>"
+  },
+  {
+    question: "Which symbol is used for comments in JavaScript?",
+    options: ["//", "/* */", "<!-- -->", "#"],
+    answer: "//"
+  },
+  {
+    question: "Which HTML attribute is used to display an image?",
+    options: ["src", "href", "alt", "title"],
+    answer: "src"
+  },
+  {
+    question: "Which method is used to select an element by ID in JavaScript?",
     options: [
-      "Cross-Origin Resource Sharing",
-      "Cross-Origin Restricted Script",
-      "Controlled Origin Resource Service",
-      "Cross-Organization Resource Sharing"
+      "getElementById()",
+      "querySelectorAll()",
+      "getElementsByClassName()",
+      "getTagName()"
     ],
-    answer: "Cross-Origin Resource Sharing"
+    answer: "getElementById()"
   },
   {
-    question: "Which SQL command is used to remove a table completely?",
-    options: ["DELETE", "DROP", "REMOVE", "TRUNCATE"],
-    answer: "DROP"
+    question: "Which CSS property controls the size of text?",
+    options: ["font-size", "text-size", "font-weight", "size"],
+    answer: "font-size"
   },
   {
-    question: "What does the 'this' keyword refer to in JavaScript (default)?",
-    options: [
-      "The global object",
-      "The current function",
-      "The parent object",
-      "Undefined always"
-    ],
-    answer: "The global object"
+    question: "Which company developed JavaScript?",
+    options: ["Google", "Netscape", "Microsoft", "Apple"],
+    answer: "Netscape"
+  },
+  {
+    question: "Which HTML element is used for the largest heading?",
+    options: ["<h1>", "<h6>", "<heading>", "<head>"],
+    answer: "<h1>"
+  },
+  {
+    question: "Which keyword is used to declare a variable in JavaScript?",
+    options: ["var", "let", "const", "All of the above"],
+    answer: "All of the above"
+  },
+  {
+    question: "Which CSS property is used to change the background color?",
+    options: ["color", "background-color", "bgcolor", "background"],
+    answer: "background-color"
   }
 ];
+
 
 // HTML ELEMENTS
 const formContainer = document.getElementById("form-container");
@@ -90,6 +111,7 @@ const optionsBox = document.getElementById("optionsBox");
 const totalBox = document.getElementById("total");
 const qNumberBox = document.getElementById("qNumber");
 
+const startBtn = document.querySelector("#startbtn");
 const nextBtn = document.getElementById("nextBtn");
 const restartBtn = document.getElementById("restartBtn");
 
@@ -189,6 +211,7 @@ function stopTimer() {
 
 // move to next question
 nextBtn.addEventListener("click", () => {
+  startBtn.style.display = "none";
   currentQuestion++;
   if (currentQuestion < quizData.length) {
     showQuestion();
@@ -214,19 +237,18 @@ restartBtn.addEventListener("click", () => {
   wrongBox.innerText = 0;
   nextBtn.style.display = "inline-block";
   restartBtn.classList.add("d-none");
-  showQuestion();
+  formContainer.style.display = "block";
+  quizContainer.style.display = "none";
 });
 
-form.addEventListener("submit", handleSubmit);
-
-function handleSubmit(event) {
-  event.preventDefault();
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  e.target['name'].value = "";
+  e.target['email'].value = "";
   formContainer.style.display = "none";
   quizContainer.style.display = "block";
-  // start quiz
+});
+
+startBtn.addEventListener("click", () => {
   showQuestion();
-}
+})
