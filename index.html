@@ -12,10 +12,21 @@
 </head>
 
 <body>
+
   <div class="container-fluid">
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
-      <div class="card shadow p-4 w-100 rounded bg-light" style="max-width: 600px;">
+      <!--form container-->
+      <div id="form-container" class="form-container card p-5">
+        <form id="user-form">
+          <input id="name" class="form-control mb-2" type="text" placeholder="Enter your name" required>
+          <input id="email" class="form-control mb-2" type="email" placeholder="Enter your email" required>
+          <button id="form-submit-btn" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <!--form container end-->
 
+      <!--quiz container-->
+      <div id="quiz-container" class="card shadow p-4 w-100 rounded bg-light" style="max-width: 600px;">
         <!-- Header -->
         <h2 class="text-center mb-2 fs-1">🧠 Quiz Game</h2>
 
@@ -45,9 +56,10 @@
             <button id="nextBtn" class="btn btn-primary">Next</button>
             <button id="restartBtn" class="btn btn-success d-none">Restart</button>
           </div>
-
         </div>
       </div>
+      <!--quiz container end-->
+
     </div>
   </div>
   <!-- Script -->

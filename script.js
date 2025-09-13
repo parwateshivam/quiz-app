@@ -73,14 +73,23 @@ const quizData = [
 ];
 
 // HTML ELEMENTS
+const formContainer = document.getElementById("form-container");
+const form = document.getElementById("user-form");
+const quizContainer = document.getElementById("quiz-container");
+
 const correctBox = document.getElementById("correct");
 const wrongBox = document.getElementById("wrong");
 const timerBox = document.getElementById("timer");
+
 const progressBar = document.getElementById("progressBar");
+
 const questionBox = document.getElementById("questionBox");
+
 const optionsBox = document.getElementById("optionsBox");
+
 const totalBox = document.getElementById("total");
 const qNumberBox = document.getElementById("qNumber");
+
 const nextBtn = document.getElementById("nextBtn");
 const restartBtn = document.getElementById("restartBtn");
 
@@ -208,5 +217,16 @@ restartBtn.addEventListener("click", () => {
   showQuestion();
 });
 
-// Start Quiz
-showQuestion();
+form.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  formContainer.style.display = "none";
+  quizContainer.style.display = "block";
+  // start quiz
+  showQuestion();
+}
